@@ -1,0 +1,85 @@
+package com.company;
+
+class Point{
+
+    private int x;
+    private int y;
+
+    public Point(){
+        this.x=320;
+        this.y=200;
+    }
+
+
+    public Point(int x,int y){
+        this.x=x;
+        this.y=y;
+    }
+
+    public int getX(){
+        return x;
+    }
+    public void setX(int number){
+        this.x=number;
+    }
+    public int getY(){
+        return y;
+    }
+    public void setY(int number){
+        this.y=number;
+    }
+
+    public Point getCoordinates(){
+        return new Point(this.x,this.y);
+    }
+    public void setCoordinates(int x,int y){
+        this.x=x;
+        this.y=y;
+    }
+    public void setCoordinates(Point point){
+        this.x=point.getX();
+        this.y=point.getY();
+    }
+    public double distance (Point A){
+
+        double x;
+        double y;
+        double dlugosc;
+
+        x = A.getX();
+        y = A.getY();
+
+        dlugosc = Math.sqrt(((x-this.x)*(x-this.x))+((y-this.y)*(y-this.y)));
+        return dlugosc;
+    }
+}
+class Segment {
+
+    private Point A;
+    private Point B;
+
+    public Segment(Point A,Point B) {
+        this.A = A;
+        this.B = B;
+    }
+
+    public String toString() {
+
+        System.out.println("Segment[v1=("+ A.getX()+","+A.getY()+"),v2=("+B.getX()+","+B.getY()+")");
+
+        return null;
+    }
+    public double getLength(){
+
+        return Math.sqrt((A.getX()- B.getX())*(A.getX()-B.getX()))+((A.getY()-B.getY())*(A.getY()-B.getY()));
+    }
+    public static void main (String[] args){
+        Point punkt1 = new Point(5,1);
+        Point punkt2 = new Point(6,9);
+        Segment segment = new Segment(punkt1,punkt2);
+
+        segment.toString();
+        System.out.println(segment.getLength());
+
+    }
+}
